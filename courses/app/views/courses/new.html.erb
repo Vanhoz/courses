@@ -1,0 +1,30 @@
+<h1>Добавление курса</h1>
+
+<%= form_for @course do |f| %>
+  <% if @course.errors.any? %>
+    <h2>Неверно заполнены поля</h2>
+    <ul>
+      <% @course.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :materials %><br />
+    <%= f.text_field :materials %>
+  </div>
+  <div class="field">
+    <%= f.label :questions %><br />
+    <%= f.text_field :questions %>
+  </div>
+  <div class="actions"><%= f.submit "Сохранить" %></div>
+<% end %>
