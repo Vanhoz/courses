@@ -1,24 +1,53 @@
-# README
+Развертывание
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ubuntu
 
-Things you may want to cover:
+Необходимо
 
-* Ruby version
+Ruby >= 2.3.3
+Postgresql >= 9.4
+gem Bundler
+Запуск
 
-* System dependencies
+Server (Puma)
 
-* Configuration
+rails s
+#Остановить сервер ctrl+c
+OSX
 
-* Database creation
+Необходимо
 
-* Database initialization
+Ruby >= 2.3.3
+Postgresql >= 9.4
+gem Bundler
+Запуск
 
-* How to run the test suite
+Server (Puma)
 
-* Services (job queues, cache servers, search engines, etc.)
+rails s
+#Остановить сервер ctrl+c
+Postgresql
 
-* Deployment instructions
+postgres -D /usr/local/var/postgres
+#Остановить сервер ctrl+c
+Справочная информация
 
-* ...
+Перед первым запуском:
+
+Установить все гемы: bundle install
+Создать базу: rails db:create db:migrate
+Создать пользователя-администратора по умолчанию(логин - admin, пароль - admin): rails db:seed
+Сторонние гемы:
+
+bcrypt для шифрования пароля
+pg для взаимодействия с базой данных postgresql
+Основной функционал:
+
+root: страница регистрации
+/signup: регистрация пользователя
+/login: вход для пользователя
+/courses: список курсов, доступных пользователю для прохождения
+/users: список пользователей, там же можно изменить их права и назначить курсы(доступно только админу)
+/users/:id/edit: назначить курсы пользователю
+
+функционал для групп и тестов сделать не хватило времени, но все делается по аналогии, две новые модели
